@@ -182,7 +182,7 @@ body {
     -webkit-backdrop-filter: blur(16px);
     border-color: var(--concrete-44);
 }
-.nav-logo img { height: 36px; width: auto; }
+.nav-logo img { height: 46px; width: auto; }
 .nav-links {
     display: flex;
     gap: var(--s-7);
@@ -594,6 +594,43 @@ body {
     text-transform: uppercase;
     letter-spacing: var(--track-eye);
     border-radius: var(--r-pill);
+    text-decoration: none;
+    transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+a.pill:hover { background: var(--accent); color: var(--void-black); }
+
+/* ── Mozakarite definition ────────────────────────────────── */
+.mozakarite-def {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-3);
+    padding: var(--s-5) var(--s-6);
+    background: var(--void-94);
+    border-left: 3px solid var(--accent);
+    margin-top: var(--s-7);
+    margin-bottom: var(--s-2);
+}
+.def-word {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 900;
+    letter-spacing: var(--track-d);
+    color: var(--fg);
+    text-transform: uppercase;
+}
+.def-phonetic {
+    font-size: var(--fs-small);
+    color: var(--fg-muted);
+    font-style: italic;
+}
+.def-body {
+    width: 100%;
+    font-size: var(--fs-body);
+    color: var(--fg-muted);
+    line-height: var(--lh-body);
+    margin: var(--s-2) 0 0;
+    max-width: 60ch;
 }
 
 @media (max-width: 900px) {
@@ -1025,14 +1062,19 @@ footer {
                 <h2 class="about-h2">Built in<br>Kampala.<br>Played at<br>2am.</h2>
                 <p>Mozaka is an East African Afrohouse DJ duo. Built in Kampala, the duo makes Afrohouse aimed at the global stage.</p>
                 <p>Rooted in East African identity, built for the room that doesn't stop until sunrise. African by root, global by sound.</p>
-                <p>The long-term vision: scale the Mozaka model across Nairobi, South Africa, and beyond — one sprint, one city, one camp at a time. Mozaka is a community with a core mission to bring African sound to make people across the world move.</p>
+                <p>The long-term vision: scale the Mozaka model across Nairobi, South Africa, and beyond. One sprint, one city, one camp at a time. One mission: bring the African sound to the world and make people move.</p>
                 <div class="pillars">
-                    <span class="pill">Mozaka Music</span>
-                    <span class="pill">Run Club</span>
-                    <span class="pill">Orange Pill</span>
-                    <span class="pill">Coordinates</span>
-                    <span class="pill">Camp Mozaka</span>
-                    <span class="pill">Mozakaville</span>
+                    <a href="#music"             class="pill">Mozaka Music</a>
+                    <a href="#core-run-club"      class="pill">Run Club</a>
+                    <a href="#core-orange-pill"   class="pill">Orange Pill</a>
+                    <a href="#core-coordinates"   class="pill">Coordinates</a>
+                    <a href="#camp"               class="pill">Camp Mozaka</a>
+                    <a href="#core-mozakaville"   class="pill">Mozakaville</a>
+                </div>
+                <div class="mozakarite-def">
+                    <span class="def-word">Mozakarite</span>
+                    <span class="def-phonetic">mo·ZAH·kuh·rite &nbsp;·&nbsp; n.</span>
+                    <p class="def-body">Someone who found the frequency and never looked back. Not just a fan — a frequency holder. Someone who shows up, moves, and is part of building what comes next.</p>
                 </div>
             </div>
         </div>
@@ -1052,51 +1094,55 @@ footer {
 
         <div class="community-journey">
             <p class="journey-label">How the journey comes to be</p>
-            <p class="journey-text">The sound is built at Camp Mozaka — artists in a room, creating. That music finds its first audience at the Run Club, where the community moves together. Monthly, the Orange Pill brings the room alive. Coordinates takes the music into select venues. And Mozakaville — a safari you earn your way into.</p>
+            <p class="journey-text">The sound starts at Camp Mozaka. Artists in a room, working. That music reaches its first crowd at the Run Club. Every month, the Orange Pill. Coordinates brings the music to select venues. Mozakaville is the safari you earn your way into.</p>
         </div>
 
         <!-- 5 community cores -->
         <div class="cores-grid">
-            <div class="core-card">
+            <div class="core-card" id="core-camp-mozaka">
                 <span class="core-step">Step 01</span>
                 <h3 class="core-name">Camp Mozaka</h3>
-                <p class="core-desc">Where the sound is made. Artists, producers, and DJs in a sprint — building the music that moves the world.</p>
+                <p class="core-desc">Where the sound is made. Artists, producers, and DJs in a room, working. The music that reaches the world starts here.</p>
                 <span class="core-status active">Active</span>
             </div>
-            <div class="core-card">
+            <div class="core-card" id="core-run-club">
                 <span class="core-step">Step 02</span>
                 <h3 class="core-name">Run Club</h3>
-                <p class="core-desc">Saturday mornings. The music finds its first audience — community members moving together before the world catches on.</p>
+                <p class="core-desc">Saturday mornings. The music meets its first crowd. Move with the community before the rest of the world knows.</p>
                 <span class="core-status soon">Coming Soon</span>
             </div>
-            <div class="core-card">
+            <div class="core-card" id="core-orange-pill">
                 <span class="core-step">Step 03</span>
                 <h3 class="core-name">Orange Pill</h3>
-                <p class="core-desc">The monthly rave. The room comes alive — take it and you'll hear what the Night Owl Sound really does to a crowd.</p>
+                <p class="core-desc">Monthly. The room comes alive. One way to hear what the Night Owl Sound does to a crowd.</p>
                 <span class="core-status soon">Coming Soon</span>
             </div>
-            <div class="core-card">
+            <div class="core-card" id="core-coordinates">
                 <span class="core-step">Step 04</span>
                 <h3 class="core-name">Coordinates</h3>
-                <p class="core-desc">Select venues. Location revealed on the night. The music in the rooms that matter — you have to earn the invite.</p>
+                <p class="core-desc">Select venues. The music in rooms that matter. You earn the invite.</p>
                 <span class="core-status soon">Coming Soon</span>
             </div>
-            <div class="core-card">
+            <div class="core-card" id="core-mozakaville">
                 <span class="core-step">Step 05</span>
                 <h3 class="core-name">Mozakaville</h3>
-                <p class="core-desc">The safari. A full immersive experience — curated, exclusive, designed for those who've gone all the way through.</p>
+                <p class="core-desc">The safari. Immersive, exclusive. For those who have made the full journey.</p>
                 <span class="core-status soon">Coming Soon</span>
             </div>
         </div>
 
         <div class="community-ctas">
             <a href="https://forms.gle/vxHZTgwH9cbhpNxV7" class="btn btn-solid" target="_blank" rel="noopener">
-                Request Access
+                Join the Inner Circle
                 <i data-lucide="arrow-right" style="width:15px;height:15px;stroke-width:1.5"></i>
             </a>
             <a href="https://chat.whatsapp.com/FROGHwKPaOiJyI88ASuUaf" class="btn btn-outline" target="_blank" rel="noopener">
                 <i data-lucide="message-circle" style="width:15px;height:15px;stroke-width:1.5"></i>
                 WhatsApp Community
+            </a>
+            <a href="mailto:dbakkastudios@gmail.com" class="btn btn-outline">
+                <i data-lucide="mail" style="width:15px;height:15px;stroke-width:1.5"></i>
+                Email Us
             </a>
         </div>
 
