@@ -53,8 +53,11 @@
     }
     </script>
 
-    <!-- Preconnect to font CDN -->
+    <!-- Preconnect to CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <!-- Preload hero image (LCP element) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-editorial.jpg" as="image" fetchpriority="high">
     <!-- Preload critical fonts -->
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/MonumentExtended-Ultrabold.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin>
@@ -77,12 +80,6 @@
     font-family: "SF Pro Display";
     src: url("https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/SF-Pro-Display-Regular.otf") format("opentype");
     font-weight: 400;
-    font-display: swap;
-}
-@font-face {
-    font-family: "SF Pro Display";
-    src: url("https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/SF-Pro-Display-Medium.otf") format("opentype");
-    font-weight: 500;
     font-display: swap;
 }
 @font-face {
@@ -1158,6 +1155,7 @@ footer {
         <div class="about-grid">
             <div class="about-photo-wrap">
                 <img
+                    loading="lazy"
                     src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-sunglasses.jpg"
                     alt="Mozaka — David Bakka and Kava"
                     loading="lazy"
@@ -1259,7 +1257,7 @@ footer {
     <div class="footer-inner">
         <div class="footer-top">
             <div>
-                <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/logos/wordmark-bone.png" alt="Mozaka" style="height:28px;">
+                <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/logos/wordmark-bone.png" alt="Mozaka" loading="lazy" style="height:28px;">
                 <p class="footer-tagline">Night Owl Sound &mdash; dbakka Studios</p>
             </div>
             <div class="socials">
