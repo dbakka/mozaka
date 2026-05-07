@@ -552,7 +552,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 35%;
     filter: contrast(1.1) brightness(0.88) saturate(0.85);
 }
 .about-photo-wrap::after {
@@ -598,18 +598,21 @@ body {
 
 @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; gap: var(--s-7); }
-    .about-photo-wrap { aspect-ratio: 4/3; }
+    .about-photo-wrap { aspect-ratio: 3/4; }
 }
 
 /* ── COMMUNITY ────────────────────────────────────────────── */
 .community {
     background: var(--void-black);
-    text-align: center;
     padding: var(--s-10) var(--s-8);
 }
 .community-inner {
-    max-width: 680px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+.community-header {
+    text-align: center;
+    margin-bottom: var(--s-9);
 }
 .community .rule {
     max-width: 80px;
@@ -630,11 +633,82 @@ body {
     color: var(--fg-muted);
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: var(--lh-body);
-    margin-bottom: var(--s-7);
-    max-width: 44ch;
+    margin-bottom: 0;
+    max-width: 52ch;
     margin-left: auto;
     margin-right: auto;
 }
+.community-journey {
+    background: var(--void-94);
+    border: 1px solid var(--concrete-44);
+    padding: var(--s-6) var(--s-7);
+    margin-bottom: var(--s-7);
+}
+.journey-label {
+    font-size: var(--fs-eye);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--track-eye);
+    color: var(--accent);
+    margin-bottom: var(--s-4);
+}
+.journey-text {
+    color: var(--fg-muted);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.65;
+    max-width: 72ch;
+}
+.cores-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--concrete-44);
+    border: 1px solid var(--concrete-44);
+    margin-bottom: var(--s-7);
+}
+.core-card {
+    background: var(--void-88);
+    padding: var(--s-5) var(--s-5) var(--s-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    transition: background var(--fast) var(--ease);
+}
+.core-card:hover { background: var(--void-78); }
+.core-step {
+    font-size: var(--fs-eye);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--track-eye);
+    color: var(--accent);
+}
+.core-name {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--track-d);
+    line-height: 1.1;
+}
+.core-desc {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.55;
+    flex: 1;
+}
+.core-status {
+    display: inline-block;
+    padding: 4px var(--s-3);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--track-eye);
+    border-radius: var(--r-pill);
+    margin-top: var(--s-2);
+    align-self: flex-start;
+}
+.core-status.active { background: var(--accent); color: var(--void-black); }
+.core-status.soon { border: 1px solid var(--concrete-44); color: var(--fg-muted); }
 .community-ctas {
     display: flex;
     gap: var(--s-4);
@@ -642,8 +716,16 @@ body {
     flex-wrap: wrap;
 }
 
+@media (max-width: 1100px) {
+    .cores-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 860px) {
     .community { padding: var(--s-9) var(--s-5); }
+    .community-journey { padding: var(--s-5); }
+    .cores-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .cores-grid { grid-template-columns: 1fr; }
 }
 
 /* ── FOOTER ───────────────────────────────────────────────── */
@@ -768,7 +850,7 @@ footer {
             alt="Mozaka helmet crest"
         >
         <h1 class="hero-title">MOZAKA</h1>
-        <p class="hero-sub">Dark, industrial Afrohouse from the streets of Kampala.<br><em>Afrohouse to the moon.</em></p>
+        <p class="hero-sub">Afrohouse from the streets of Kampala. Afrohouse to the moon.</p>
         <div class="hero-ctas">
             <a href="https://open.spotify.com/artist/2T8PtHPmCUWctpWM4o01Ck" class="btn btn-solid" target="_blank" rel="noopener">
                 <i data-lucide="headphones" style="width:15px;height:15px;stroke-width:1.5"></i>
@@ -798,16 +880,16 @@ footer {
 
                 <div class="camp-stats">
                     <div>
-                        <div class="stat-n">13</div>
-                        <div class="stat-l">Tracks in 3 days</div>
+                        <div class="stat-n">7</div>
+                        <div class="stat-l">Vocalists</div>
                     </div>
                     <div>
-                        <div class="stat-n">27</div>
-                        <div class="stat-l">Artists</div>
+                        <div class="stat-n">12</div>
+                        <div class="stat-l">Producers</div>
                     </div>
                     <div>
-                        <div class="stat-n">001</div>
-                        <div class="stat-l">First camp</div>
+                        <div class="stat-n">8</div>
+                        <div class="stat-l">DJs</div>
                     </div>
                 </div>
 
@@ -941,9 +1023,9 @@ footer {
             </div>
             <div class="about-text">
                 <h2 class="about-h2">Built in<br>Kampala.<br>Played at<br>2am.</h2>
-                <p>Mozaka is an East African Afrohouse DJ duo — David Bakka and Kava — released under dbakka Studios. The Night Owl Sound: dark, industrial Afrohouse aimed at the global stage.</p>
-                <p>Not generic beach Afrohouse. Not TikTok pop. Rooted in East African identity, built for the room that doesn't stop until sunrise. African by root, global by sound.</p>
-                <p>The long-term vision: scale the Mozaka model across Nairobi, South Africa, and beyond — one sprint, one city, one camp at a time.</p>
+                <p>Mozaka is an East African Afrohouse DJ duo. Built in Kampala, the duo makes Afrohouse aimed at the global stage.</p>
+                <p>Rooted in East African identity, built for the room that doesn't stop until sunrise. African by root, global by sound.</p>
+                <p>The long-term vision: scale the Mozaka model across Nairobi, South Africa, and beyond — one sprint, one city, one camp at a time. Mozaka is a community with a core mission to bring African sound to make people across the world move.</p>
                 <div class="pillars">
                     <span class="pill">Mozaka Music</span>
                     <span class="pill">Run Club</span>
@@ -960,10 +1042,53 @@ footer {
 <!-- ── COMMUNITY ──────────────────────────────────────────── -->
 <section class="community" id="community">
     <div class="community-inner">
-        <p class="eyebrow">Inner Circle</p>
-        <div class="rule"></div>
-        <h2 class="community-h2">Join the<br>circle.</h2>
-        <p class="community-body">The community is where it starts. Get access, get notified, get close to the sound before it hits the stage.</p>
+
+        <div class="community-header">
+            <p class="eyebrow">Inner Circle</p>
+            <div class="rule"></div>
+            <h2 class="community-h2">The Mozakarite<br>Journey.</h2>
+            <p class="community-body">Every Mozakarite starts somewhere. The journey moves from body to sound to culture — through five distinct experiences, each one pulling you deeper into the world Mozaka is building.</p>
+        </div>
+
+        <div class="community-journey">
+            <p class="journey-label">How the journey comes to be</p>
+            <p class="journey-text">It starts on a Saturday morning with the Run Club — the body in motion is the first frequency. That rhythm leads you to the Orange Pill, where the rave takes over and identity begins to expand. From there, Coordinates drops you into production sessions and live sets — the city becomes the stage. At Camp Mozaka, you step into the incubator: unconventional spaces, sprints, and culture being documented in real time. And for those who go all the way — Mozakaville. The full experience. Curated, immersive, unforgettable.</p>
+        </div>
+
+        <!-- 5 community cores -->
+        <div class="cores-grid">
+            <div class="core-card">
+                <span class="core-step">Step 01</span>
+                <h3 class="core-name">Run Club</h3>
+                <p class="core-desc">Saturday mornings. High-performance pace protocol, route cards, and kits. The body meets the beat — this is where it begins.</p>
+                <span class="core-status soon">Coming Soon</span>
+            </div>
+            <div class="core-card">
+                <span class="core-step">Step 02</span>
+                <h3 class="core-name">Orange Pill</h3>
+                <p class="core-desc">The rave. Identity expansion through sound and space. Flyers, tickets, countdowns. Take it and you hear what the Night Owl Sound really is.</p>
+                <span class="core-status soon">Coming Soon</span>
+            </div>
+            <div class="core-card">
+                <span class="core-step">Step 03</span>
+                <h3 class="core-name">Coordinates</h3>
+                <p class="core-desc">Location-reveal events and B2B sets. Production and video mapping. The city is the stage — you just have to show up at the right coordinates.</p>
+                <span class="core-status soon">Coming Soon</span>
+            </div>
+            <div class="core-card">
+                <span class="core-step">Step 04</span>
+                <h3 class="core-name">Camp Mozaka</h3>
+                <p class="core-desc">The creative sprint. Unconventional spaces, 72 hours, constant output. Cultural sanctuary and legacy documentation — where the sound gets made.</p>
+                <span class="core-status active">Active</span>
+            </div>
+            <div class="core-card">
+                <span class="core-step">Step 05</span>
+                <h3 class="core-name">Mozakaville</h3>
+                <p class="core-desc">The pinnacle. Experience design and guest management — the luxury track. Brochures, itineraries, curated encounters. For those who go all the way.</p>
+                <span class="core-status soon">Coming Soon</span>
+            </div>
+        </div>
+
         <div class="community-ctas">
             <a href="https://forms.gle/vxHZTgwH9cbhpNxV7" class="btn btn-solid" target="_blank" rel="noopener">
                 Request Access
@@ -974,6 +1099,7 @@ footer {
                 WhatsApp Community
             </a>
         </div>
+
     </div>
 </section>
 
@@ -987,7 +1113,7 @@ footer {
             </div>
             <div class="socials">
                 <a href="https://www.instagram.com/mozaka_music_" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
-                    <i data-lucide="instagram" style="width:17px;height:17px;stroke-width:1.5"></i>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/></svg>
                 </a>
                 <a href="http://www.tiktok.com/@mozaka_music" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
                     <!-- TikTok icon -->
