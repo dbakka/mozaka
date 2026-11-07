@@ -76,6 +76,9 @@
     <!-- Preload hero image -->
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-editorial.jpg" as="image" fetchpriority="high">
 
+    <!-- Bandsintown Widget Script -->
+    <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
+
     <style>
 /* ── Design Tokens ────────────────────────────────────────── */
 :root {
@@ -137,7 +140,7 @@ body {
 }
 
 /* Atkinson Hyperlegible Next applied to all headers */
-h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-h2 {
+h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-h2, .events-h2 {
     font-family: var(--font-family);
     font-weight: 800;
 }
@@ -211,7 +214,6 @@ h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-
     -webkit-backdrop-filter: blur(16px);
     border-color: var(--concrete-44);
 }
-/* Logo scaled up 2x */
 .nav-logo img { height: 112px; width: auto; display: block; }
 .nav-links {
     display: flex;
@@ -479,12 +481,13 @@ h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-
 .stream-icon {
     width: 38px; height: 38px;
     display: flex; align-items: center; justify-content: center;
-    background: var(--void-78);
+    background: transparent;
+    color: var(--accent);
     flex-shrink: 0;
 }
 .stream-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     fill: currentColor;
 }
 .stream-name { font-weight: 800; font-size: var(--fs-body); }
@@ -506,9 +509,29 @@ h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-
     .music-grid { grid-template-columns: 1fr; gap: var(--s-7); }
 }
 
+/* ── EVENTS ───────────────────────────────────────────────── */
+.events {
+    background: var(--void-94);
+    border-top: 2px solid var(--concrete-44);
+}
+.events-h2 {
+    font-size: var(--fs-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: var(--track-d);
+    line-height: var(--lh-d);
+    margin-bottom: var(--s-6);
+}
+.events-widget-wrap {
+    margin-top: var(--s-6);
+    background: var(--void-black);
+    padding: var(--s-6);
+    border: 1px solid var(--concrete-44);
+}
+
 /* ── ABOUT ────────────────────────────────────────────────── */
 .about {
-    background: var(--void-94);
+    background: var(--void-black);
     border-top: 2px solid var(--concrete-44);
 }
 .about-grid {
@@ -558,7 +581,8 @@ h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-
 
 /* ── COMMUNITY ────────────────────────────────────────────── */
 .community {
-    background: var(--void-black);
+    background: var(--void-94);
+    border-top: 2px solid var(--concrete-44);
     padding: var(--s-10) var(--s-8);
 }
 .community-inner {
@@ -608,7 +632,7 @@ h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 footer {
-    background: var(--void-94);
+    background: var(--void-black);
     border-top: 2px solid var(--concrete-44);
     padding: var(--s-8);
 }
@@ -680,6 +704,7 @@ footer {
     <ul class="nav-links" id="navLinks">
         <li><a href="#camp">Camp Mozaka</a></li>
         <li><a href="#music">Music</a></li>
+        <li><a href="#events">Tour &amp; Events</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#community">Community</a></li>
     </ul>
@@ -691,6 +716,7 @@ footer {
 <div class="nav-mobile" id="navMobile" aria-hidden="true">
     <a href="#camp"      onclick="closeNav()">Camp Mozaka</a>
     <a href="#music"     onclick="closeNav()">Music</a>
+    <a href="#events"    onclick="closeNav()">Tour &amp; Events</a>
     <a href="#about"     onclick="closeNav()">About</a>
     <a href="#community" onclick="closeNav()">Community</a>
 </div>
@@ -769,7 +795,7 @@ footer {
                     <a href="https://open.spotify.com/artist/2T8PtHPmCUWctpWM4o01Ck" class="stream-link" target="_blank" rel="noopener">
                         <div class="stream-info">
                             <div class="stream-icon">
-                                <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.72.48-1.08.24-2.999-1.8-6.721-2.22-11.161-1.2-.42.12-.84-.18-.96-.6-.12-.42.18-.84.6- .96 4.8-1.08 9.001-.6 12.36 1.56.36.24.48.72.24 1.08zm1.44-3.84c-.301.48-.901.6-1.381.3-3.481-2.16-8.761-2.76-12.841-1.5-.54.18-1.08-.12-1.26-.66-.18-.54.12-1.08.66-1.26 4.62-1.44 10.381-.78 14.461 1.8.48.3.66.9.3 1.38zm.12-4.02C15.24 7.32 8.82 7.14 5.16 8.28c-.66.18-1.32-.18-1.5-.84-.18-.66.18-1.32.84-1.5 4.32-1.32 11.4-1.14 15.48 1.26.6.36.78 1.14.42 1.74-.36.6-1.14.78-1.74.42z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.72.48-1.08.24-2.999-1.8-6.721-2.22-11.161-1.2-.42.12-.84-.18-.96-.6-.12-.42.18-.84.6-.96 4.8-1.08 9.001-.6 12.36 1.56.36.24.48.72.24 1.08zm1.44-3.84c-.301.48-.901.6-1.381.3-3.481-2.16-8.761-2.76-12.841-1.5-.54.18-1.08-.12-1.26-.66-.18-.54.12-1.08.66-1.26 4.62-1.44 10.381-.78 14.461 1.8.48.3.66.9.3 1.38zm.12-4.02C15.24 7.32 8.82 7.14 5.16 8.28c-.66.18-1.32-.18-1.5-.84-.18-.66.18-1.32.84-1.5 4.32-1.32 11.4-1.14 15.48 1.26.6.36.78 1.14.42 1.74-.36.6-1.14.78-1.74.42z"/></svg>
                             </div>
                             <div>
                                 <div class="stream-name">Spotify</div>
@@ -791,8 +817,20 @@ footer {
                 </div>
             </div>
             <div class="spotify-embed">
-                <iframe src="https://music.youtube.com/@mozakamusic" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="YouTube Music Mozaka"></iframe>
+                <iframe src="https://open.spotify.com/embed/artist/2T8PtHPmCUWctpWM4o01Ck?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify Mozaka Artist Player"></iframe>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── EVENTS ───────────────────────────────────────────────── -->
+<section class="section events" id="events">
+    <div class="section-inner">
+        <p class="eyebrow">Live Performances</p>
+        <div class="rule"></div>
+        <h2 class="events-h2">Tour &amp; Events</h2>
+        <div class="events-widget-wrap">
+            <a class="bit-widget-initializer" data-artist-name="id_15674202" data-app-id="c35f7f74e8be89e87df7ba5fa393ed95"></a>
         </div>
     </div>
 </section>
