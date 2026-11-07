@@ -31,7 +31,7 @@
     <meta name="twitter:description" content="Mozaka transforms East Africa's native languages into peak-time dance music. Based in Kampala, Uganda.">
     <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/mozaka-profile.png">
 
-    <!-- Single Consolidated Schema.org Structured Data -->
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,26 +73,10 @@
     <!-- Preconnect to CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <!-- Preload hero image (LCP element) -->
+    <!-- Preload hero image -->
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-editorial.jpg" as="image" fetchpriority="high">
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/MonumentExtended-Ultrabold.otf" as="font" type="font/otf" crossorigin>
 
     <style>
-/* ── Fonts ────────────────────────────────────────── */
-@font-face {
-    font-family: "Monument Extended";
-    src: url("https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/MonumentExtended-Ultrabold.otf") format("opentype");
-    font-weight: 700 900;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Monument Extended";
-    src: url("https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/fonts/MonumentExtended-Regular.otf") format("opentype");
-    font-weight: 400 600;
-    font-display: swap;
-}
-
 /* ── Design Tokens ────────────────────────────────────────── */
 :root {
     --void-black:    #0A0A0A;
@@ -112,22 +96,21 @@
     --accent:  var(--signal-orange);
     --divider: var(--concrete-44);
 
-    --font-display: "Monument Extended", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --font-body:    "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-family:  "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-    --fs-hero:   clamp(60px, 10vw, 148px);
-    --fs-h1:     clamp(40px, 5.5vw, 80px);
-    --fs-h2:     clamp(28px, 4vw, 56px);
-    --fs-h3:     24px;
+    --fs-hero:   clamp(52px, 9vw, 130px);
+    --fs-h1:     clamp(36px, 5vw, 72px);
+    --fs-h2:     clamp(26px, 3.8vw, 48px);
+    --fs-h3:     22px;
     --fs-body:   16px;
     --fs-small:  14px;
     --fs-eye:    12px;
 
-    --track-d:   -0.02em;
-    --track-eye: 0.14em;
-    --lh-d:      0.9;
+    --track-d:   -0.01em;
+    --track-eye: 0.12em;
+    --lh-d:      0.95;
     --lh-h:      1.05;
-    --lh-body:   1.5;
+    --lh-body:   1.55;
 
     --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
     --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px; --s-10:128px;
@@ -139,13 +122,13 @@
     --nav-h:  72px;
 }
 
-/* ── Reset ────────────────────────────────────────────────── */
+/* ── Reset & Base Typography ──────────────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body {
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--font-body);
+    font-family: var(--font-family);
     font-size: var(--fs-body);
     font-weight: 400;
     line-height: var(--lh-body);
@@ -153,8 +136,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Make headers bold/black in Atkinson Hyperlegible Next */
-h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
+/* Atkinson Hyperlegible Next applied to all display titles */
+h1, h2, h3, h4, h5, h6, .hero-title, .camp-h2, .music-h2, .about-h2, .community-h2 {
+    font-family: var(--font-family);
     font-weight: 800;
 }
 
@@ -164,10 +148,10 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
 ::-webkit-scrollbar-thumb { background:var(--concrete-44); }
 ::-webkit-scrollbar-thumb:hover { background:var(--accent); }
 
-/* ── Typography helpers ───────────────────────────────────── */
+/* ── Typography Helpers ───────────────────────────────────── */
 .eyebrow {
     font-size: var(--fs-eye);
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-eye);
     color: var(--accent);
@@ -184,7 +168,7 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     align-items: center;
     gap: var(--s-2);
     padding: var(--s-3) var(--s-6);
-    font-family: var(--font-body);
+    font-family: var(--font-family);
     font-size: var(--fs-small);
     font-weight: 800;
     text-transform: uppercase;
@@ -354,14 +338,6 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     color: var(--accent);
     margin-bottom: var(--s-5);
 }
-.hero-eyebrow::before {
-    content: "";
-    display: block;
-    width: 32px;
-    height: 2px;
-    background: var(--accent);
-    flex-shrink: 0;
-}
 .hero-logo {
     width: clamp(48px, 7vw, 80px);
     height: auto;
@@ -370,9 +346,8 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     opacity: 0.9;
 }
 .hero-title {
-    font-family: var(--font-display);
     font-size: var(--fs-hero);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-d);
     line-height: var(--lh-d);
@@ -383,7 +358,7 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     font-size: clamp(16px, 1.8vw, 22px);
     color: var(--fg-muted);
     line-height: 1.45;
-    max-width: 52ch;
+    max-width: 54ch;
     margin-bottom: var(--s-7);
 }
 .hero-ctas {
@@ -418,9 +393,8 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     margin-top: var(--s-7);
 }
 .camp-h2 {
-    font-family: var(--font-display);
     font-size: var(--fs-h1);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-d);
     line-height: var(--lh-d);
@@ -432,9 +406,34 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     max-width: 50ch;
     margin-bottom: var(--s-4);
 }
+.camp-video-wrap {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--s-5));
+}
+.camp-video {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    box-shadow: 0 0 0 3px var(--signal-orange);
+    background: var(--void-black);
+}
+.camp-video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+.camp-caption {
+    margin-top: var(--s-4);
+    font-size: var(--fs-eye);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: var(--track-eye);
+    color: var(--fg-muted);
+}
 
 @media (max-width: 900px) {
     .camp-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+    .camp-video-wrap { position: static; }
 }
 
 /* ── MUSIC ────────────────────────────────────────────────── */
@@ -447,9 +446,8 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     margin-top: var(--s-7);
 }
 .music-h2 {
-    font-family: var(--font-display);
     font-size: var(--fs-h2);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-d);
     line-height: var(--lh-h);
@@ -480,10 +478,24 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     width: 38px; height: 38px;
     display: flex; align-items: center; justify-content: center;
     background: var(--void-78);
+    font-weight: 800;
+    font-size: 13px;
     flex-shrink: 0;
 }
 .stream-name { font-weight: 800; font-size: var(--fs-body); }
 .stream-sub { font-size: 13px; color: var(--fg-muted); margin-top: 2px; }
+.spotify-embed {
+    background: var(--void-94);
+    box-shadow: 0 0 0 3px var(--signal-orange);
+    height: 380px;
+    overflow: hidden;
+}
+.spotify-embed iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
 
 @media (max-width: 900px) {
     .music-grid { grid-template-columns: 1fr; gap: var(--s-7); }
@@ -521,9 +533,8 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     pointer-events: none;
 }
 .about-h2 {
-    font-family: var(--font-display);
     font-size: var(--fs-h2);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-d);
     line-height: var(--lh-d);
@@ -551,7 +562,7 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
 }
 .community-header {
     text-align: center;
-    margin-bottom: var(--s-9);
+    margin-bottom: var(--s-7);
 }
 .community .rule {
     max-width: 80px;
@@ -560,9 +571,8 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     margin-bottom: var(--s-7);
 }
 .community-h2 {
-    font-family: var(--font-display);
     font-size: var(--fs-h1);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--track-d);
     line-height: var(--lh-d);
@@ -572,10 +582,16 @@ h1, h2, h3, h4, h5, h6, .stream-name, .core-name, .btn, .nav-links a {
     color: var(--fg-muted);
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: var(--lh-body);
-    margin-bottom: 0;
     max-width: 52ch;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: var(--s-7);
+}
+.community-ctas {
+    display: flex;
+    gap: var(--s-4);
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 860px) {
@@ -674,13 +690,13 @@ footer {
 <!-- ── HERO ───────────────────────────────────────────────── -->
 <section class="hero" id="top">
     <div class="hero-bg" aria-hidden="true">
-        <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-editorial.jpg" alt="" fetchpriority="high">
+        <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/duo-editorial.jpg" alt="Mozaka Duo Editorial" fetchpriority="high">
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-grain"  aria-hidden="true"></div>
 
     <div class="hero-content">
-        <p class="hero-eyebrow">Night Owl Sound &mdash; Kampala, Uganda</p>
+        <p class="hero-eyebrow">Night Owl Sound Kampala Uganda</p>
         <img
             class="hero-logo"
             src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/logos/helmet-crest-signal.png"
@@ -693,8 +709,8 @@ footer {
                 <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"/></svg>
                 Watch on YouTube
             </a>
-            <a href="https://open.spotify.com/artist/2T8PtHPmCUWctpWM4o01Ck" class="btn btn-outline" target="_blank" rel="noopener">
-                Listen on Spotify
+            <a href="#music" class="btn btn-outline">
+                Listen &amp; Stream
             </a>
         </div>
     </div>
@@ -703,13 +719,20 @@ footer {
 <!-- ── CAMP MOZAKA ────────────────────────────────────────── -->
 <section class="section camp" id="camp">
     <div class="section-inner">
-        <p class="eyebrow">Creative Incubator &mdash; Kampala, Uganda</p>
+        <p class="eyebrow">Creative Incubator Kampala Uganda</p>
         <div class="rule"></div>
 
         <div class="camp-grid">
             <div class="camp-text">
                 <h2 class="camp-h2">Camp Mozaka 001</h2>
                 <p>A high-intensity electronic music retreat and collaborative incubator based in Kampala, Uganda.</p>
+                <p>Connecting artists, sound designers, and vocalists to shape the next movement of East African Afrohouse.</p>
+            </div>
+            <div class="camp-video-wrap">
+                <div class="camp-video">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLmozaka_official" title="Camp Mozaka Official Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="camp-caption">Camp Mozaka 001 Session Highlights</div>
             </div>
         </div>
     </div>
@@ -728,8 +751,8 @@ footer {
                         <div class="stream-info">
                             <div class="stream-icon">YT</div>
                             <div>
-                                <div class="stream-name">YouTube Official Artist Channel</div>
-                                <div class="stream-sub">Visuals, sets, and releases</div>
+                                <div class="stream-name">YouTube</div>
+                                <div class="stream-sub">Official Artist Channel sets and videos</div>
                             </div>
                         </div>
                     </a>
@@ -738,11 +761,23 @@ footer {
                             <div class="stream-icon">SP</div>
                             <div>
                                 <div class="stream-name">Spotify</div>
-                                <div class="stream-sub">Stream albums and singles</div>
+                                <div class="stream-sub">Stream discography and singles</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://music.apple.com/ug/artist/mozaka/1797649101" class="stream-link" target="_blank" rel="noopener">
+                        <div class="stream-info">
+                            <div class="stream-icon">AM</div>
+                            <div>
+                                <div class="stream-name">Apple Music</div>
+                                <div class="stream-sub">Lossless audio releases</div>
                             </div>
                         </div>
                     </a>
                 </div>
+            </div>
+            <div class="spotify-embed">
+                <iframe src="https://open.spotify.com/embed/artist/2T8PtHPmCUWctpWM4o01Ck?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </div>
@@ -755,7 +790,7 @@ footer {
         <div class="rule"></div>
         <div class="about-grid">
             <div class="about-photo-wrap">
-                <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/mozaka-profile.png" alt="Mozaka Profile">
+                <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/photos/mozaka-profile.png" alt="Mozaka Duo Profile">
             </div>
             <div class="about-text">
                 <h2 class="about-h2">About Mozaka</h2>
@@ -774,7 +809,15 @@ footer {
             <p class="eyebrow">Community &amp; Culture</p>
             <div class="rule"></div>
             <h2 class="community-h2">The Mozakarite Network</h2>
-            <p class="community-body">Building the future of East African electronic music together.</p>
+            <p class="community-body">Building the future of East African electronic music together. Join our private access list or connect with the community directly on WhatsApp.</p>
+            <div class="community-ctas">
+                <a href="https://forms.gle/vxHZTgwH9cbhpNxV7" class="btn btn-solid" target="_blank" rel="noopener">
+                    Mozaka Access Link
+                </a>
+                <a href="https://chat.whatsapp.com/FROGHwKPaOiJyI88ASuUaf" class="btn btn-outline" target="_blank" rel="noopener">
+                    WhatsApp Community
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -783,13 +826,13 @@ footer {
 <footer>
     <div class="footer-inner">
         <div class="footer-top">
-            <div>
+            <div class="footer-logo">
                 <img src="https://cdn.jsdelivr.net/gh/dbakka/mozaka-design-system@main/assets/logos/wordmark-bone.png" alt="Mozaka">
             </div>
-            <div class="socials">
-                <a href="https://www.youtube.com/@mozakamusic" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
-                <a href="https://open.spotify.com/artist/2T8PtHPmCUWctpWM4o01Ck" class="social-link" target="_blank" rel="noopener" aria-label="Spotify">SP</a>
-                <a href="https://linktr.ee/mozaka_music" class="social-link" target="_blank" rel="noopener" aria-label="Linktree">LT</a>
+            <div class="footer-links">
+                <a href="https://www.youtube.com/@mozakamusic" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://open.spotify.com/artist/2T8PtHPmCUWctpWM4o01Ck" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://linktr.ee/mozaka_music" target="_blank" rel="noopener">Linktree</a>
             </div>
         </div>
         <div class="footer-bottom">
